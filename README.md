@@ -1,38 +1,35 @@
 # Mnrbcop
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mnrbcop`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+MedicalNoteのRuboCopファイル用Gem
 
 ## Installation
 
-Add this line to your application's Gemfile:
+あなたのアプリの Gemfileに以下を追加:
 
 ```ruby
-gem 'mnrbcop'
+group :development, :test do
+
+  # rubocopそのものは一緒に入れるのでコメントアウト推奨
+  #gem 'rubocop', '~> 0.52.1'
+  gem 'mnrbcop' , :git => 'https://github.com/medicalnote/mnrbcop.git'
+
+end
+
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install mnrbcop
 
 ## Usage
 
-TODO: Write usage instructions here
+`.rubocop.yml` に以下を追加:
+
+```yaml
+inherit_gem:
+  mnrbcop: "config/rubocop.yml"
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mnrbcop. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+`/config/rubocop.yml` のファイルを適宜修正してください。
 
 
 ## License
